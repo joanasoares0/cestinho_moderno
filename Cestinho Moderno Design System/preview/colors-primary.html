@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Primary palette</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: var(--bg-page); display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; min-height: 240px; }
+  .swatch { border-radius: var(--r-md); padding: 18px; display: flex; flex-direction: column; justify-content: space-between; min-height: 180px; box-shadow: var(--sh-1); }
+  .name { font-family: var(--font-display); font-weight: 600; font-size: 16px; }
+  .hex  { font-family: var(--font-body); font-weight: 600; font-size: 13px; opacity: .82; letter-spacing: .04em; }
+  .token { font-family: var(--font-body); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; opacity: .72; }
+  .ink { background: var(--cm-ink); color: #fff; }
+  .iris { background: var(--cm-iris); color: #fff; }
+  .lav { background: var(--cm-lavender); color: var(--cm-ink); }
+  .sky { background: var(--cm-sky); color: var(--cm-ink); }
+</style>
+</head>
+<body>
+  <div class="swatch ink">
+    <div class="token">--cm-ink</div>
+    <div><div class="name">Ink</div><div class="hex">#091040</div></div>
+  </div>
+  <div class="swatch iris">
+    <div class="token">--cm-iris</div>
+    <div><div class="name">Iris</div><div class="hex">#5053A9</div></div>
+  </div>
+  <div class="swatch lav">
+    <div class="token">--cm-lavender</div>
+    <div><div class="name">Lavender</div><div class="hex">#A79BD9</div></div>
+  </div>
+  <div class="swatch sky">
+    <div class="token">--cm-sky</div>
+    <div><div class="name">Sky</div><div class="hex">#A0C6E8</div></div>
+  </div>
+</body>
+</html>

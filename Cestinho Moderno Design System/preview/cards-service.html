@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Service Card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: var(--bg-page); display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; min-height: 240px; }
+  .card { background: var(--cm-paper); border-radius: var(--r-md); padding: 22px; box-shadow: var(--sh-2); position: relative; overflow: hidden; }
+  .card .ico { width: 44px; height: 44px; border-radius: var(--r-sm); background: var(--cm-lavender-30); display: grid; place-items: center; margin-bottom: 16px; }
+  .card .ico svg { width: 22px; height: 22px; stroke: var(--cm-iris); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .card h3 { margin: 0 0 6px; font-family: var(--font-display); font-weight: 600; color: var(--cm-ink); font-size: 18px; }
+  .card p { margin: 0; font-size: 13.5px; color: var(--fg-3); line-height: 1.5; }
+  .accent { background: var(--cm-ink); color: var(--fg-on-ink); }
+  .accent h3 { color: #fff; }
+  .accent p { color: rgba(244,241,251,.78); }
+  .accent .ico { background: rgba(167,155,217,.18); }
+  .accent .ico svg { stroke: var(--cm-lavender); }
+  .accent::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 140px; height: 140px; background-image: url(../assets/pattern.svg); background-size: 280px; opacity: .25; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 6h16M5 6l1.5 13h11L19 6M9 10v6M15 10v6"/></svg></div>
+    <h3>Engomadoria</h3>
+    <p>Camisas, calças, fardamentos — passados e dobrados com brio.</p>
+  </div>
+  <div class="card accent">
+    <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 16h11l-1-8H4l-1 8zM14 11h4l3 5h-7M6 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM17 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg></div>
+    <h3>Recolha & entrega</h3>
+    <p>Logística flexível, à sua porta — horários adaptados ao seu dia.</p>
+  </div>
+  <div class="card">
+    <div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="m20 4-12 14M8 8l12 12"/></svg></div>
+    <h3>Arranjos de Costura</h3>
+    <p>Bainhas, fechos, ajustes — o detalhe que faltava à sua roupa.</p>
+  </div>
+</body>
+</html>

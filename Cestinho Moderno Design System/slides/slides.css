@@ -1,0 +1,144 @@
+/* Cestinho Moderno — slide styles (1920×1080) */
+
+deck-stage section {
+  background: var(--cm-cream);
+  color: var(--fg-1);
+  padding: 96px 120px;
+  font-family: var(--font-body);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+deck-stage section.ink { background: var(--cm-ink); color: var(--fg-on-ink); }
+deck-stage section.lavender { background: var(--bg-soft); }
+deck-stage section.sky { background: var(--bg-cool); }
+
+/* Pattern wash on dark slides */
+deck-stage section.ink::after {
+  content: ""; position: absolute; inset: 0;
+  background: url(../assets/pattern.svg) center/1100px;
+  opacity: .14; pointer-events: none;
+}
+
+/* Brand mark in corner */
+.slide-mark {
+  position: absolute; top: 56px; left: 120px;
+  font-family: var(--font-display); font-weight: 300; letter-spacing: .04em;
+  text-transform: uppercase; font-size: 22px; color: var(--cm-iris);
+  display: inline-flex; align-items: baseline; gap: .15em;
+}
+.slide-mark .scr { font-family: var(--font-script); color: var(--cm-lavender); font-weight: 400; text-transform: none; font-size: 30px; transform: translateY(.18em); }
+.ink .slide-mark { color: rgba(255,255,255,.85); }
+.ink .slide-mark .scr { color: var(--cm-lavender); }
+
+.slide-num {
+  position: absolute; bottom: 56px; right: 120px;
+  font-family: var(--font-body); font-size: 14px; color: var(--fg-3); letter-spacing: .12em;
+}
+.ink .slide-num { color: rgba(244,241,251,.5); }
+
+.slide-eyebrow {
+  font-family: var(--font-body); font-weight: 700; font-size: 18px;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--cm-iris);
+  display: inline-block;
+}
+.ink .slide-eyebrow { color: var(--cm-lavender); }
+.lavender .slide-eyebrow { color: var(--cm-iris); }
+
+.slide-h1 {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 96px; line-height: 1.02; letter-spacing: -.01em; color: var(--cm-ink);
+  margin: 0; text-wrap: balance; max-width: 24ch;
+}
+.ink .slide-h1 { color: #fff; }
+.slide-h1 .scr { font-family: var(--font-script); color: var(--cm-lavender); font-weight: 400; font-size: 1.05em; }
+
+.slide-h2 {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 64px; line-height: 1.05; letter-spacing: -.005em; color: var(--cm-ink);
+  margin: 0 0 24px; text-wrap: balance;
+}
+.ink .slide-h2 { color: #fff; }
+
+.slide-lead {
+  font-size: 28px; line-height: 1.45; color: var(--fg-2); max-width: 26ch;
+}
+.ink .slide-lead { color: rgba(244,241,251,.82); }
+
+.slide-body { font-size: 22px; line-height: 1.5; color: var(--fg-2); }
+.ink .slide-body { color: rgba(244,241,251,.78); }
+
+.slide-quote {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 72px; line-height: 1.15; letter-spacing: -.005em;
+  color: var(--cm-ink); text-wrap: balance; max-width: 22ch;
+}
+.slide-quote .scr { font-family: var(--font-script); color: var(--cm-lavender); font-weight: 400; font-size: 1.08em; }
+.ink .slide-quote { color: #fff; }
+
+.slide-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; height: 100%; }
+.slide-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.slide-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+.slide-stat {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.slide-stat .v {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 120px; line-height: 1; color: var(--cm-iris); letter-spacing: -.02em;
+}
+.ink .slide-stat .v { color: var(--cm-lavender); }
+.slide-stat .l { font-size: 20px; color: var(--fg-3); }
+.ink .slide-stat .l { color: rgba(244,241,251,.66); }
+
+.slide-card {
+  background: var(--cm-paper); border-radius: var(--r-lg); padding: 36px;
+  box-shadow: var(--sh-2); display: flex; flex-direction: column; gap: 14px;
+}
+.slide-card .ico {
+  width: 64px; height: 64px; border-radius: var(--r-md);
+  background: var(--cm-lavender-30); color: var(--cm-iris);
+  display: grid; place-items: center;
+}
+.slide-card .ico svg { width: 30px; height: 30px; stroke-width: 1.6; }
+.slide-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 26px; color: var(--cm-ink); margin: 4px 0 0; }
+.slide-card p { font-size: 17px; color: var(--fg-3); margin: 0; line-height: 1.5; }
+
+.slide-illus {
+  display: grid; place-items: center;
+}
+.slide-illus img { width: 100%; max-width: 640px; filter: drop-shadow(0 40px 60px rgba(80, 83, 169, 0.22)); }
+
+.slide-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; }
+.slide-bullets li { display: flex; gap: 16px; font-size: 22px; color: var(--fg-2); line-height: 1.45; align-items: baseline; }
+.slide-bullets li::before {
+  content: "·"; color: var(--cm-lavender); font-family: var(--font-display); font-size: 48px; line-height: .7; flex-shrink: 0;
+}
+.ink .slide-bullets li { color: rgba(244,241,251,.85); }
+
+.slide-price-row {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px;
+}
+.slide-price {
+  background: var(--cm-paper); border-radius: var(--r-md); padding: 24px 20px;
+  display: flex; flex-direction: column; gap: 4px;
+  box-shadow: var(--sh-1);
+}
+.slide-price.feat { background: var(--cm-ink); }
+.slide-price .qty { font-family: var(--font-display); font-weight: 500; font-size: 38px; color: var(--cm-ink); line-height: 1; }
+.slide-price .qty small { font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--fg-3); }
+.slide-price .price { font-family: var(--font-display); font-weight: 600; font-size: 30px; color: var(--cm-iris); margin-top: 6px; }
+.slide-price.feat .qty, .slide-price.feat .qty small { color: #fff; }
+.slide-price.feat .qty small { color: rgba(255,255,255,.66); }
+.slide-price.feat .price { color: var(--cm-lavender); }
+
+.slide-cta {
+  display: inline-flex; align-items: center; gap: 14px;
+  background: var(--cm-iris); color: #fff;
+  padding: 22px 34px; border-radius: var(--r-pill);
+  font-family: var(--font-body); font-weight: 700; font-size: 24px;
+  box-shadow: var(--sh-3);
+}
+.slide-cta.wa { background: var(--cm-whatsapp); }
+.slide-cta.lav { background: var(--cm-lavender); color: var(--cm-ink); }
