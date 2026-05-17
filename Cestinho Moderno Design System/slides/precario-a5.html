@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Cestinho Moderno — Preçário 2026</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #b0b0b0;
+  font-family: var(--font-body, 'Nunito', sans-serif);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+/* ── A5 page shell: 148 × 210 mm, nothing escapes ── */
+.page {
+  width: 148mm;
+  height: 210mm;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+/* pattern wash */
+.page::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/pattern.svg') center / 260px repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-1 { background: var(--cm-cream); color: var(--cm-ink); }
+.page-1::after { opacity: .10; }
+
+.page-2 { background: var(--cm-ink); color: #fff; }
+.page-2::after { opacity: .055; filter: brightness(6); }
+
+/* main body fills available height */
+.body {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 0;
+  padding: 9mm 10mm 5mm;
+  display: flex;
+  flex-direction: column;
+}
+
+/* footer bar sits at the bottom, inside the page */
+.foot {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  padding: 3mm 10mm;
+  text-align: center;
+  font-size: 7px;
+  letter-spacing: .06em;
+  font-family: 'Nunito', sans-serif;
+}
+.page-1 .foot {
+  background: rgba(167,155,217,.18);
+  color: var(--cm-iris);
+}
+.page-2 .foot {
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.45);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* ── Wordmark ── */
+.wm { display: inline-flex; align-items: baseline; gap: 3px; line-height: 1; }
+.wm-caps {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cm-iris);
+}
+.page-2 .wm-caps { color: rgba(255,255,255,.80); }
+.wm-scr {
+  font-family: 'Yellowtail', cursive;
+  font-size: 16px;
+  color: var(--cm-lavender);
+}
+
+/* ── Page header ── */
+.hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6.5mm;
+}
+.hdr-tag {
+  font-size: 6.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  text-align: right;
+  line-height: 1.8;
+  color: var(--cm-iris);
+}
+.page-2 .hdr-tag { color: rgba(255,255,255,.40); }
+
+/* ── Hero ── */
+.hero {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-size: 29px;
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  color: var(--cm-ink);
+  margin-bottom: 3mm;
+}
+.page-2 .hero { color: #fff; }
+.hero .scr {
+  font-family: 'Yellowtail', cursive;
+  font-weight: 400;
+  color: var(--cm-lavender);
+  font-size: 1.06em;
+}
+
+.hero-sub {
+  font-size: 9.5px;
+  line-height: 1.6;
+  color: #666;
+  max-width: 58mm;
+  margin-bottom: 5.5mm;
+}
+.page-2 .hero-sub { color: rgba(255,255,255,.55); max-width: 72mm; }
+
+/* ── Price section ── */
+.section { margin-bottom: 4.5mm; }
+
+.sec-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1.5px solid var(--cm-iris);
+  padding-bottom: 1.5mm;
+}
+.sec-title {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--cm-ink);
+}
+.sec-tag {
+  font-size: 6px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cm-iris);
+}
+
+/* 2-column price grid */
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.pr {
+  display: flex;
+  align-items: baseline;
+  padding: 2.2mm 0;
+  border-bottom: 1px dashed rgba(80,83,169,.18);
+  gap: 0;
+}
+.price-grid .pr:nth-child(odd)  { padding-right: 5mm; border-right: 1px dashed rgba(80,83,169,.18); }
+.price-grid .pr:nth-child(even) { padding-left: 5mm; }
+.price-grid .pr:nth-last-child(1),
+.price-grid .pr:nth-last-child(2) { border-bottom: none; }
+
+/* lone item spans full width */
+.pr.full { grid-column: 1 / -1; border-right: none !important; padding-right: 0 !important; }
+
+.pr-qty { font-size: 9px; color: var(--cm-ink); }
+.pr-val {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--cm-iris);
+  letter-spacing: -.02em;
+  margin-left: auto;
+  line-height: 1;
+}
+.pr-val small {
+  font-family: 'Nunito', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* ── Specialized services list ── */
+.svc-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 4mm;
+}
+.svc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5mm 0;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.svc-row:first-child { border-top: 1.5px solid rgba(255,255,255,.15); }
+.svc-name { font-size: 10px; font-weight: 600; color: rgba(255,255,255,.88); }
+.svc-price {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--cm-lavender);
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+.svc-price .unit { font-family: 'Nunito', sans-serif; font-size: 7.5px; font-weight: 400; color: rgba(167,155,217,.60); }
+.svc-row.urgente .svc-price { color: var(--cm-sky); font-size: 13px; }
+
+/* ── CTA box ── */
+.cta {
+  background: rgba(167,155,217,.16);
+  border-radius: 7px;
+  padding: 4mm 5mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4mm;
+  gap: 4mm;
+}
+.cta-l p { font-size: 10.5px; color: rgba(255,255,255,.85); line-height: 1.4; }
+.cta-l .cta-scr { font-family: 'Yellowtail', cursive; font-size: 16px; color: var(--cm-lavender); }
+.cta-l .sub { font-size: 8.5px; color: rgba(255,255,255,.45); margin-top: 1mm; }
+.cta-r { text-align: right; flex-shrink: 0; }
+.cta-r .lbl { font-size: 6.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 1.5mm; }
+.cta-r .num { font-family: 'Quicksand', sans-serif; font-weight: 600; font-size: 13px; color: #fff; letter-spacing: -.01em; }
+
+/* ── Contacts strip ── */
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,.10);
+  padding-top: 3mm;
+}
+.ct .lbl { font-size: 6px; letter-spacing: .13em; text-transform: uppercase; color: rgba(255,255,255,.30); margin-bottom: 1mm; }
+.ct .val { font-size: 8px; font-weight: 600; color: rgba(255,255,255,.65); }
+.ct.r { text-align: right; }
+
+/* ── Print ── */
+@media print {
+  body { background: none; margin: 0; padding: 0; display: block; }
+
+  @page { size: A5 portrait; margin: 0; }
+
+  .page {
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════
+     PÁGINA 1 — Packs domésticos (fundo cream)
+════════════════════════════════════════════════ -->
+<div class="page page-1">
+  <div class="body">
+
+    <!-- header -->
+    <div class="hdr">
+      <div class="wm">
+        <span class="wm-caps">Cestinho</span>
+        <span class="wm-scr">moderno</span>
+      </div>
+      <div class="hdr-tag">Lavandaria · Engomadoria<br>Arranjos · Recolha em casa</div>
+    </div>
+
+    <!-- hero -->
+    <h1 class="hero">Roupa cuidada,<br>tempo <span class="scr">recuperado</span>.</h1>
+    <p class="hero-sub">Os nossos packs adaptam-se à sua casa. Quanto maior o pack, menor o custo por peça.</p>
+
+    <!-- Pack de Engomadoria -->
+    <div class="section">
+      <div class="sec-hdr">
+        <span class="sec-title">Pack de Engomadoria</span>
+        <span class="sec-tag">Para a Casa</span>
+      </div>
+      <div class="price-grid">
+        <div class="pr">
+          <span class="pr-qty">20 peças</span>
+          <span class="pr-val">29<small>€</small></span>
+        </div>
+        <div class="pr">
+          <span class="pr-qty">40 peças</span>
+          <span class="pr-val">59<small>€</small></span>
+        </div>
+        <div class="pr">
+          <span class="pr-qty">60 peças</span>
+          <span class="pr-val">69<small>€</small></span>
+        </div>
+        <div class="pr">
+          <span class="pr-qty">80 peças</span>
+          <span class="pr-val">79<small>€</small></span>
+        </div>
+        <div class="pr">
+          <span class="pr-qty">100 peças</span>
+          <span class="pr-val">89<small>€</small></span>
+        </div>
+        <div class="pr">
+          <span class="pr-qty">120 peças</span>
+          <span class="pr-val">99<small>€</small></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pack de Camisas -->
+    <div class="section">
+      <div class="sec-hdr">
+        <span class="sec-title">Pack de Camisas</span>
+        <span class="sec-tag">Profissional</span>
+      </div>
+      <div class="price-grid">
+        <div class="pr">
+          <span class="pr-qty">7 camisas</span>
+          <span class="pr-val">12<small>€</small></span>
+        </div>
+        <div class="pr">
+          <span class="pr-qty">12 camisas</span>
+          <span class="pr-val">20<small>€</small></span>
+        </div>
+        <div class="pr full">
+          <span class="pr-qty">18 camisas</span>
+          <span class="pr-val">28<small>€</small></span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.body -->
+
+  <div class="foot">
+    Recolha e entrega em casa <strong>incluídas</strong> · Porto · Matosinhos · Maia
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════
+     PÁGINA 2 — Serviços especializados (fundo dark)
+════════════════════════════════════════════════ -->
+<div class="page page-2">
+  <div class="body">
+
+    <!-- header -->
+    <div class="hdr">
+      <div class="wm">
+        <span class="wm-caps">Cestinho</span>
+        <span class="wm-scr">moderno</span>
+      </div>
+      <div class="hdr-tag">Edição 2026</div>
+    </div>
+
+    <!-- hero -->
+    <h1 class="hero">Serviços <span class="scr">especializados</span>.</h1>
+    <p class="hero-sub">Para quando é preciso mais do que lavar e passar — adicionados a qualquer pack.</p>
+
+    <!-- services list -->
+    <div class="svc-list">
+      <div class="svc-row">
+        <span class="svc-name">Tratamento anti-nódoas</span>
+        <span class="svc-price">2,5€ <span class="unit">/peça</span></span>
+      </div>
+      <div class="svc-row">
+        <span class="svc-name">Impermeabilização</span>
+        <span class="svc-price">8€ <span class="unit">/peça</span></span>
+      </div>
+      <div class="svc-row">
+        <span class="svc-name">Desinfecção &amp; higienização</span>
+        <span class="svc-price">6€ <span class="unit">/peça</span></span>
+      </div>
+      <div class="svc-row">
+        <span class="svc-name">Retirar pêlo / borboto</span>
+        <span class="svc-price">2,5€ <span class="unit">/peça</span></span>
+      </div>
+      <div class="svc-row urgente">
+        <span class="svc-name">Serviço urgente 24 horas</span>
+        <span class="svc-price">+25% <span class="unit">sobre o total</span></span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta-l">
+        <p>Vamos <span class="cta-scr">começar</span>?</p>
+        <p class="sub">Marque a sua recolha.</p>
+      </div>
+      <div class="cta-r">
+        <div class="lbl">WhatsApp</div>
+        <div class="num">+351 931 887 137</div>
+      </div>
+    </div>
+
+    <!-- contacts -->
+    <div class="contacts">
+      <div class="ct">
+        <div class="lbl">E-mail</div>
+        <div class="val">cestinhomoderno@gmail.com</div>
+      </div>
+      <div class="ct r">
+        <div class="lbl">Instagram</div>
+        <div class="val">@cestinhomoderno</div>
+      </div>
+    </div>
+
+  </div><!-- /.body -->
+
+  <div class="foot">
+    Recolha e entrega em <strong>Porto · Matosinhos · Maia</strong>
+  </div>
+</div>
+
+</body>
+</html>
