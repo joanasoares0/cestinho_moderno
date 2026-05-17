@@ -584,37 +584,6 @@ p {
    margin: 40px 0 16px;
 }
 
-/* Scrollable wrapper — clips overflow and fades the trailing edge on mobile */
-.cm-pack-wrapper {
-   overflow-x: auto;
-   -webkit-overflow-scrolling: touch;
-   padding-bottom: 8px;
-   margin: 0 -20px;
-   padding-left: 20px;
-   padding-right: 20px;
-}
-
-.cm-pack-wrapper::-webkit-scrollbar {
-   height: 4px;
-}
-
-.cm-pack-wrapper::-webkit-scrollbar-track {
-   background: transparent;
-}
-
-.cm-pack-wrapper::-webkit-scrollbar-thumb {
-   background: var(--cm-lavender-30);
-   border-radius: 4px;
-}
-
-@media (min-width: 721px) {
-   .cm-pack-wrapper {
-      overflow-x: visible;
-      margin: 0;
-      padding: 0;
-   }
-}
-
 .cm-packs-grid {
    display: grid;
    grid-template-columns: repeat(6, 1fr);
@@ -632,18 +601,10 @@ p {
    }
 }
 
-/* On mobile, keep card width fixed so they scroll rather than squash */
-@media (max-width: 720px) {
-   .cm-packs-grid {
-      grid-template-columns: repeat(6, minmax(148px, 1fr));
-      width: max-content;
-      min-width: 100%;
-   }
-
+@media (max-width: 560px) {
+   .cm-packs-grid,
    .cm-packs-grid-3 {
-      grid-template-columns: repeat(3, minmax(180px, 1fr));
-      width: max-content;
-      min-width: 100%;
+      grid-template-columns: repeat(2, 1fr);
    }
 }
 
@@ -736,10 +697,14 @@ p {
    color: rgba(244, 241, 251, .7);
 }
 
+.cm-pack-wrapper-header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 8px;
+}
+
 .cm-pack-badge {
-   position: absolute;
-   top: -10px;
-   right: 14px;
    background: var(--cm-lavender);
    color: var(--cm-ink);
    font-family: var(--font-body);
@@ -749,6 +714,7 @@ p {
    border-radius: var(--r-pill);
    letter-spacing: .12em;
    text-transform: uppercase;
+   white-space: nowrap;
 }
 
 .cm-extras {
