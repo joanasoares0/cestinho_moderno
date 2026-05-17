@@ -1,5 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/", "destination": "/ui_kits/site/index.html" }
-  ]
-}
