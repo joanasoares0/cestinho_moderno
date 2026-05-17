@@ -3,7 +3,7 @@
 > Lavandaria · Engomadoria · Arranjos de Costura · Recolhas & Entregas  
 > Porto, Portugal · [@cestinhomoderno](https://instagram.com/cestinhomoderno)
 
-Repositório com toda a identidade visual, materiais de marketing e design system do **Cestinho Moderno** — pequeno negócio familiar do Porto que cuida de todo o ciclo da roupa para famílias e empresas.
+Repositório com toda a identidade visual, materiais de marketing e design system do **Cestinho Moderno** — pequeno negócio familiar que cuida de todo o ciclo da roupa para famílias e empresas.
 
 ---
 
@@ -49,8 +49,4 @@ Ver [`Cestinho Moderno Design System/README.md`](Cestinho%20Moderno%20Design%20S
 
 ---
 
-## Contacto do cliente
 
-- Email: cestinhomoderno@gmail.com  
-- WhatsApp: +351 931 887 137  
-- Instagram: @cestinhomoderno
