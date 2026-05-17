@@ -1,0 +1,198 @@
+/* ============================================================
+   Cestinho Moderno · Design Tokens
+   Lavandaria · Engomadoria · Arranjos · Porto, PT
+   ============================================================ */
+
+/* --- Google Fonts (substitutions for brand fonts) ---
+   Brand display: "CESTINHO" — geometric, light, rounded sans (subbed with Quicksand)
+   Brand script:  "moderno"  — flowing handwritten script (subbed with Yellowtail)
+   Body:                       — friendly humanist sans (Nunito)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&family=Yellowtail&family=Sacramento&display=swap");
+
+:root {
+  /* ===== Brand colour palette ===== */
+  --cm-ink:        #091040; /* deep navy — primary type & logo wordmark */
+  --cm-iris:       #5053A9; /* iris blue/purple — primary action, headings */
+  --cm-lavender:   #A79BD9; /* lavender — accent, script wordmark, sashes  */
+  --cm-sky:        #A0C6E8; /* sky blue — soft surface, water motif        */
+
+  /* Tints (for surfaces, hovers, washes) */
+  --cm-ink-90:    #1a205a;
+  --cm-iris-70:   #7c7fc4;
+  --cm-iris-20:   #e3e4f3;
+  --cm-lavender-30: #e6e1f4;
+  --cm-lavender-10: #f4f1fb;
+  --cm-sky-30:    #e0edf7;
+  --cm-sky-10:    #f1f6fc;
+
+  /* Neutrals */
+  --cm-cream:     #faf8f5; /* warm page wash */
+  --cm-paper:     #ffffff;
+  --cm-mist:      #f4f4f8;
+  --cm-line:      #e3e2ec;
+  --cm-muted:     #6b6e8b;
+  --cm-soft:      #9b9eb8;
+
+  /* Semantic */
+  --cm-success:   #5a9b7e; /* gentle sage — "limpo" */
+  --cm-warn:      #d9a05a; /* amber — urgência 24h */
+  --cm-whatsapp:  #25d366; /* exact WhatsApp green for CTAs */
+
+  /* ===== Background tokens ===== */
+  --bg-page:      var(--cm-cream);
+  --bg-surface:   var(--cm-paper);
+  --bg-soft:      var(--cm-lavender-10);
+  --bg-cool:      var(--cm-sky-10);
+  --bg-ink:       var(--cm-ink);
+
+  /* ===== Foreground tokens ===== */
+  --fg-1:         var(--cm-ink);     /* primary text */
+  --fg-2:         #353a64;            /* body text */
+  --fg-3:         var(--cm-muted);    /* secondary */
+  --fg-4:         var(--cm-soft);     /* tertiary */
+  --fg-on-ink:    #f4f1fb;            /* text on navy */
+  --fg-on-iris:   #ffffff;
+
+  /* ===== Typography ===== */
+  --font-display: "Quicksand", "Avenir Next", system-ui, sans-serif;
+  --font-script:  "Yellowtail", "Sacramento", cursive;
+  --font-body:    "Nunito", "Avenir Next", system-ui, sans-serif;
+
+  /* ===== Radii ===== */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  /* ===== Spacing scale (multiples of 4) ===== */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+
+  /* ===== Shadows — soft, ambient (no hard drops) ===== */
+  --sh-1: 0 1px 2px rgba(9, 16, 64, .04), 0 1px 1px rgba(9, 16, 64, .04);
+  --sh-2: 0 6px 18px -8px rgba(80, 83, 169, .18), 0 2px 6px rgba(9, 16, 64, .05);
+  --sh-3: 0 24px 48px -24px rgba(80, 83, 169, .28), 0 6px 14px rgba(9, 16, 64, .06);
+  --sh-glow: 0 0 0 6px rgba(167, 155, 217, .25);
+
+  /* ===== Motion ===== */
+  --ease-soft: cubic-bezier(.22, .61, .36, 1);
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --dur-fast: 140ms;
+  --dur-med:  260ms;
+  --dur-slow: 480ms;
+}
+
+/* ===== Base ===== */
+html, body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--fg-2);
+  background: var(--bg-page);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ===== Type scale ===== */
+
+/* Display: only for hero & marquee — uses Quicksand at light weight with wide tracking, echoing the logo's "CESTINHO" mark */
+.cm-display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 1.02;
+  letter-spacing: 0.04em;
+  color: var(--cm-ink);
+  text-transform: uppercase;
+}
+
+/* Script: brand accent only ("moderno", "reformar", "limpa") — never for body */
+.cm-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1;
+  color: var(--cm-lavender);
+}
+
+h1, .cm-h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(36px, 4.4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: 0.005em;
+  color: var(--cm-ink);
+  text-wrap: balance;
+}
+h2, .cm-h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(28px, 2.8vw, 38px);
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+  color: var(--cm-ink);
+  text-wrap: balance;
+}
+h3, .cm-h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--cm-ink);
+}
+h4, .cm-h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--cm-ink);
+}
+
+p, .cm-body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+.cm-lead {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--fg-2);
+}
+.cm-small {
+  font-size: 13px;
+  color: var(--fg-3);
+  line-height: 1.45;
+}
+
+/* Eyebrows: short uppercase labels above headings — used on packs, sections */
+.cm-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cm-iris);
+}
+
+/* Price callout (used on price-list & packs) */
+.cm-price {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  color: var(--cm-ink);
+}

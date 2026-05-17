@@ -11,31 +11,49 @@ Repositório com toda a identidade visual, materiais de marketing e design syste
 
 ```
 cestinho_moderno/
-├── Cestinho Moderno Design System/   # Sistema de design completo
-│   ├── colors_and_type.css           # Tokens CSS (cores, tipografia, espaçamento)
+├── design_system/                    # Sistema de design completo
+│   ├── colors_and_type.css           # Tokens CSS (cores, tipografia, espaçamento, sombras)
 │   ├── assets/                       # Logos, ícone do cesto, pattern, fotos IG
-│   ├── preview/                      # Fichas HTML do design system
-│   ├── slides/                       # Pitch decks HTML (B2C famílias / B2B empresas)
-│   └── ui_kits/site/                 # Landing page (HTML + JSX)
-├── deliverables/                     # PDFs entregues ao cliente
-│   ├── cartão_visita.pdf
-│   └── precario.pdf
-├── design_elements/                  # Ficheiros originais (logos, vectoriais, PDFs)
+│   ├── preview/                      # Fichas HTML do design system (cores, tipo, cards…)
+│   ├── downloads/                    # Versões bundled para download (preçário, cartão)
+│   ├── posts-instagram/              # Posts IG prontos (HTML + PNG exportado)
+│   ├── screenshots/                  # Capturas de ecrã de peças finais
+│   ├── slides/                       # Pitch decks HTML (fonte · com CSS corretos)
+│   └── ui_kits/site/                 # Landing page proposta (HTML + JSX + CSS)
+├── slides/                           # Peças de trabalho + PDFs exportados
+│   ├── deck-empresas.html            # Pitch deck B2B (HTML interativo)
+│   ├── deck-empresas.pdf             # → PDF 1920×1080, 10 slides
+│   ├── deck-familias.html            # Pitch deck B2C (HTML interativo)
+│   ├── deck-familias.pdf             # → PDF 1920×1080
+│   ├── precario-a5.html              # Preçário (bundled)
+│   ├── precario-a5.pdf               # → PDF A5, 2 páginas, pronto a imprimir
+│   ├── cartao-visita.html            # Cartão de visita (bundled)
+│   ├── cartao-visita-print.html      # Layout A4: 10 cartões/folha (frente + verso)
+│   ├── cartao-visita.pdf             # → PDF A4, 2 páginas (frente e verso)
+│   ├── deck-stage.js                 # Web component de apresentação
+│   └── slides.css                    # Estilos dos slides
+├── cestinho_moderno_site/            # Site estático para deploy (Vercel)
+│   ├── index.html                    # Landing page
+│   ├── style.css                     # Estilos do site
+│   ├── main.js                       # Scroll behavior + footer
+│   ├── colors_and_type.css           # Tokens CSS (cópia standalone)
+│   └── assets/                       # Logos e imagens do site
 ├── instagram/                        # Capturas do perfil @cestinhomoderno
-└── Content Planner CM.pdf            # Plano editorial de redes sociais
+├── conteudo.txt                      # Texto base: sobre, preçário, contactos
+├── instagram_planner.txt             # Plano editorial de redes sociais
+└── archive/                          # Versões anteriores arquivadas
 ```
 
 ---
 
-## Deliverables
+## PDFs prontos a entregar
 
-| Peça | Ficheiro | Estado |
-|------|----------|--------|
-| Cartão de visita | `deliverables/cartão_visita.pdf` | Entregue |
-| Preçário | `deliverables/precario.pdf` | Entregue |
-| Pitch deck B2C (famílias) | `slides/deck-familias.html` | Pronto |
-| Pitch deck B2B (empresas) | `slides/deck-empresas.html` | Pronto |
-| Landing page | `ui_kits/site/index.html` | Proposta |
+| Peça | Ficheiro | Formato |
+|------|----------|---------|
+| Cartão de visita | `slides/cartao-visita.pdf` | A4 · 10 cartões/folha (85×55 mm) · frente + verso |
+| Preçário | `slides/precario-a5.pdf` | A5 · 2 páginas · pronto a imprimir |
+| Pitch deck B2B (empresas) | `slides/deck-empresas.pdf` | 1920×1080 px · 10 slides |
+| Pitch deck B2C (famílias) | `slides/deck-familias.pdf` | 1920×1080 px |
 
 ---
 
@@ -45,8 +63,6 @@ cestinho_moderno/
 **Tipografia** — Quicksand (display) · Yellowtail (script) · Nunito (corpo)  
 **Tom de voz** — acolhedor, prático, ligeiramente afectuoso. Vende tempo livre, não lavandaria.
 
-Ver [`Cestinho Moderno Design System/README.md`](Cestinho%20Moderno%20Design%20System/README.md) para documentação completa.
+Ver [`design_system/README.md`](design_system/README.md) para documentação completa do design system.
 
 ---
-
-
